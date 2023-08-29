@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type {
-		WidgetProps,
-		TableData,
-		HighlightCoordinates,
-	} from "../../shared/types";
+	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
@@ -28,9 +25,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
-	const columns: string[] = Object.keys(
-		model?.widgetData?.[0]?.structuredData ?? {}
-	);
+	const columns: string[] = Object.keys(model?.widgetData?.[0]?.structuredData ?? {});
 
 	let computeTime = "";
 	let error: string = "";
@@ -39,7 +34,7 @@
 		isLoading: false,
 		estimatedTime: 0,
 	};
-	let output: (string | number)[] = [];
+	let output: (string | number)[] | null = [];
 	let outputJson: string;
 	let table: (string | number)[][] = [columns];
 
@@ -58,8 +53,7 @@
 			delete strucuredData.Prediction;
 			highlighted = {};
 			if (highlightErrorKey) {
-				highlighted[highlightErrorKey] =
-					"bg-red-100 border-red-100 dark:bg-red-800 dark:border-red-800";
+				highlighted[highlightErrorKey] = "bg-red-100 border-red-100 dark:bg-red-800 dark:border-red-800";
 				highlightErrorKey = "";
 			}
 		}
@@ -87,10 +81,7 @@
 		output = [];
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -108,8 +99,7 @@
 		}
 
 		// strip prediction column
-		let { Prediction, ...tableWithoutOutput } =
-			convertTableToData(tableWithOutput);
+		let { Prediction: prediction, ...tableWithoutOutput } = convertTableToData(tableWithOutput);
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
@@ -161,25 +151,17 @@
 	}
 
 	function isValidOutput(arg: any): arg is (string | number)[] {
-		return (
-			Array.isArray(arg) &&
-			arg.every((x) => typeof x === "string" || typeof x === "number")
-		);
+		return Array.isArray(arg) && arg.every(x => typeof x === "string" || typeof x === "number");
 	}
 
 	function parseOutput(body: unknown): (string | number)[] {
 		if (isValidOutput(body)) {
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<string | number>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<string | number>");
 	}
 
-	function highlightOutput(
-		output: (string | number)[],
-		colIndex: number
-	): HighlightCoordinates {
+	function highlightOutput(output: (string | number)[], colIndex: number): HighlightCoordinates {
 		const set: Set<string | number> = new Set(output);
 		let classes: Record<string, number> = {};
 		if (set.size < COLORS.length) {

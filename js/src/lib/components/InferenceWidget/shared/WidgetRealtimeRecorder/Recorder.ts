@@ -1,29 +1,29 @@
 export default class Recorder {
 	// see developers.google.com/web/updates/2016/01/mediarecorder
-	type: "audio" | "video" = "audio";
-	private apiToken: string | undefined;
-	private audioContext: AudioContext;
+	type:                       "audio" | "video" = "audio";
+	private apiToken:           string | undefined;
+	private audioContext:       AudioContext;
 	private isLoggedIn = false;
 	private isModelLoaded = false;
 	private isEmptyBuffer = false;
-	private modelId: string;
-	private onError: (err: string) => void;
+	private modelId:            string;
+	private onError:            (err: string) => void;
 	private updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
-	private renderText: (txt: string) => void;
-	private renderWarning: (warning: string) => void;
-	private socket: WebSocket;
-	private stream: MediaStream;
+	private renderText:         (txt: string) => void;
+	private renderWarning:      (warning: string) => void;
+	private socket:             WebSocket;
+	private stream:             MediaStream;
 
 	constructor(modelId: string, apiToken: string | undefined, renderText: (txt: string) => void, renderWarning: (warning: string) => void, onError: (err: string) => void, updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void){
 		this.modelId = modelId;
-		this.apiToken = !!apiToken ? apiToken : "";
+		this.apiToken = apiToken || "";
 		this.renderText = renderText;
 		this.renderWarning = renderWarning;
 		this.onError = onError;
 		this.updateModelLoading = updateModelLoading;
 	}
 
-	async start() {
+	async start() : Promise<void> {
 		const constraints: MediaStreamConstraints =
 			this.type === "video"
 				? { audio: true, video: true }
@@ -52,7 +52,7 @@ export default class Recorder {
 			}else{
 				// data.type === "results"
 				this.isModelLoaded = true;
-				if(!!data.text){
+				if(data.text){
 					this.renderText(data.text)
 				}else if(!this.isEmptyBuffer){
 					this.renderWarning("result was empty");
@@ -67,15 +67,15 @@ export default class Recorder {
 		microphone.connect(dataExtractor).connect(this.audioContext.destination);
 
 		dataExtractor.port.onmessage = (event) => {
-			const {buffer, sampling_rate} = event.data;
+			const {buffer, sampling_rate: samplingRate} = event.data;
 			this.isEmptyBuffer = buffer.reduce((sum: number, x: number) => sum + x) === 0;
 			if(this.isModelLoaded && this.isEmptyBuffer){
 				this.renderWarning("🎤 input is empty: try speaking louder 🗣️ & make sure correct mic source is selected");
 			}
 			const base64: string = btoa(String.fromCharCode(...new Uint8Array(buffer.buffer)));
 			const message = {
-				raw: base64,
-				sampling_rate,
+				raw:           base64,
+				sampling_rate: samplingRate,
 			};
 			if(this.isLoggedIn){
 				try{
@@ -87,10 +87,12 @@ export default class Recorder {
 		};
 	}
 
-	stop() {
+	stop() : void {
 		this.isLoggedIn = false;
-		this.audioContext?.close();
+		void this.audioContext?.close();
 		this.socket?.close();
-		this.stream?.getTracks().forEach((t) => t.stop());
+		for(const t of this.stream?.getTracks() ?? []){
+			t.stop();
+		}
 	}
 }

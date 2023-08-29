@@ -14,7 +14,7 @@
 
 <li>
 	<a
-		class="flex items-center hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap 
+		class="flex cursor-pointer items-center whitespace-nowrap px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-800
 			{classNames} {underline ? 'hover:underline' : ''}"
 		{href}
 		on:click={onClick}

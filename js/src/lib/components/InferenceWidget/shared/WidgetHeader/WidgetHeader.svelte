@@ -31,9 +31,7 @@
 		{/if}
 	{/if}
 </div>
-<div
-	class="mb-0.5 flex w-full max-w-full flex-wrap items-center justify-between text-sm text-gray-500"
->
+<div class="mb-0.5 flex w-full max-w-full flex-wrap items-center justify-between text-sm text-gray-500">
 	{#if pipeline}
 		<a
 			class={TASKS_DATA[task] ? "hover:underline" : undefined}

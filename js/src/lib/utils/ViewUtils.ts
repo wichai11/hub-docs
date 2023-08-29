@@ -11,7 +11,7 @@ const ESCAPED = {
 /**
  *  Returns a function that clamps input value to range [min <= x <= max].
  */
- export function clamp(x: number, min: number, max: number): number {
+export function clamp(x: number, min: number, max: number): number {
 	return Math.max(min, Math.min(x, max));
 }
 
@@ -75,18 +75,18 @@ export function parseJSON<T>(x: unknown): T | undefined {
 /*
  * Return true if an HTML element is scrolled all the way
  */
-export function isFullyScrolled(elt: HTMLElement) {
+export function isFullyScrolled(elt: HTMLElement): boolean {
 	return elt.scrollHeight - Math.abs(elt.scrollTop) === elt.clientHeight;
 }
 
 /*
  * Smoothly scroll an element all the way
  */
-export function scrollToMax(elt: HTMLElement, axis: "x" | "y" = "y") {
+export function scrollToMax(elt: HTMLElement, axis: "x" | "y" = "y"): void {
 	elt.scroll({
 		behavior: "smooth",
-		left: axis === "x" ? elt.scrollWidth : undefined,
-		top: axis === "y" ? elt.scrollHeight : undefined,
+		left:     axis === "x" ? elt.scrollWidth : undefined,
+		top:      axis === "y" ? elt.scrollHeight : undefined,
 	});
 }
 

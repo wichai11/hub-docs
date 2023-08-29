@@ -2,19 +2,19 @@ import { delay } from "../../../../utils/ViewUtils";
 
 export default class Recorder {
 	// see developers.google.com/web/updates/2016/01/mediarecorder
-	type: "audio" | "video" = "audio";
-	private stream: MediaStream;
+	type:                  "audio" | "video" = "audio";
+	private stream:        MediaStream;
 	private mediaRecorder: MediaRecorder;
 	private recordedBlobs: Blob[] = [];
-	public outputBlob?: Blob;
+	public outputBlob?:    Blob;
 
 	get desiredMimeType(): string {
 		return this.type === "video" ? "video/webm" : "audio/webm";
 	}
-	get mimeType() {
+	get mimeType(): string {
 		return this.mediaRecorder.mimeType;
 	}
-	async start() {
+	async start() : Promise<void> {
 		this.recordedBlobs = [];
 
 		const constraints: MediaStreamConstraints =
@@ -34,8 +34,8 @@ export default class Recorder {
 			this.handleDataAvailable.bind(this);
 		this.mediaRecorder.start(10); // timeslice in ms
 	}
-	handleStop() {}
-	handleDataAvailable(evt: any) {
+	handleStop() : void {}
+	handleDataAvailable(evt: BlobEvent) : void {
 		if (evt.data && evt.data.size > 0) {
 			this.recordedBlobs.push(evt.data);
 		}
@@ -45,7 +45,9 @@ export default class Recorder {
 			this.mediaRecorder.stop();
 		}
 		if (this.stream) {
-			this.stream.getTracks().forEach((t) => t.stop()); // Stop stream.
+			for(const t of this.stream.getTracks()) {
+				t.stop(); // Stop stream.
+			}
 		}
 
 		// handle stopRecording gets called before this.mediaRecorder is initialized

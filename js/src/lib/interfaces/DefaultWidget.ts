@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import type { PipelineType } from "./Types";
 
 type LanguageCode = string;
@@ -34,7 +35,7 @@ const MAPPING_EN: PerLanguageMapping = new Map([
 	] ],
 	[ "table-question-answering", [
 		{
-			text: `How many stars does the transformers repository have?`,
+			text:  `How many stars does the transformers repository have?`,
 			table: {
 				Repository: [
 					"Transformers",
@@ -61,37 +62,37 @@ const MAPPING_EN: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `Where do I live?`,
+			text:    `Where do I live?`,
 			context: `My name is Wolfgang and I live in Berlin`,
 		},
 		{
-			text: `Where do I live?`,
+			text:    `Where do I live?`,
 			context: `My name is Sarah and I live in London`,
 		},
 		{
-			text: `What's my name?`,
+			text:    `What's my name?`,
 			context: `My name is Clara and I live in Berkeley.`,
 		},
 		{
-			text: `Which name is also used to describe the Amazon rainforest in English?`,
+			text:    `Which name is also used to describe the Amazon rainforest in English?`,
 			context: `The Amazon rainforest (Portuguese: Floresta Amazônica or Amazônia; Spanish: Selva Amazónica, Amazonía or usually Amazonia; French: Forêt amazonienne; Dutch: Amazoneregenwoud), also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 square kilometres (2,700,000 sq mi), of which 5,500,000 square kilometres (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations. The majority of the forest is contained within Brazil, with 60% of the rainforest, followed by Peru with 13%, Colombia with 10%, and with minor amounts in Venezuela, Ecuador, Bolivia, Guyana, Suriname and French Guiana. States or departments in four nations contain "Amazonas" in their names. The Amazon represents over half of the planet's remaining rainforests, and comprises the largest and most biodiverse tract of tropical rainforest in the world, with an estimated 390 billion individual trees divided into 16,000 species.`,
 		}
 	] ],
 	[ "zero-shot-classification", [
 		{
-			text: "I have a problem with my iphone that needs to be resolved asap!!",
+			text:             "I have a problem with my iphone that needs to be resolved asap!!",
 			candidate_labels: "urgent, not urgent, phone, tablet, computer",
-			multi_class: true,
+			multi_class:      true,
 		},
 		{
-			text: "Last week I upgraded my iOS version and ever since then my phone has been overheating whenever I use your app.",
+			text:             "Last week I upgraded my iOS version and ever since then my phone has been overheating whenever I use your app.",
 			candidate_labels: "mobile, website, billing, account access",
-			multi_class: false,
+			multi_class:      false,
 		},
 		{
-			text: "A new model offers an explanation for how the Galilean satellites formed around the solar system’s largest world. Konstantin Batygin did not set out to solve one of the solar system’s most puzzling mysteries when he went for a run up a hill in Nice, France. Dr. Batygin, a Caltech researcher, best known for his contributions to the search for the solar system’s missing “Planet Nine,” spotted a beer bottle. At a steep, 20 degree grade, he wondered why it wasn’t rolling down the hill. He realized there was a breeze at his back holding the bottle in place. Then he had a thought that would only pop into the mind of a theoretical astrophysicist: “Oh! This is how Europa formed.” Europa is one of Jupiter’s four large Galilean moons. And in a paper published Monday in the Astrophysical Journal, Dr. Batygin and a co-author, Alessandro Morbidelli, a planetary scientist at the Côte d’Azur Observatory in France, present a theory explaining how some moons form around gas giants like Jupiter and Saturn, suggesting that millimeter-sized grains of hail produced during the solar system’s formation became trapped around these massive worlds, taking shape one at a time into the potentially habitable moons we know today.",
+			text:             "A new model offers an explanation for how the Galilean satellites formed around the solar system’s largest world. Konstantin Batygin did not set out to solve one of the solar system’s most puzzling mysteries when he went for a run up a hill in Nice, France. Dr. Batygin, a Caltech researcher, best known for his contributions to the search for the solar system’s missing “Planet Nine,” spotted a beer bottle. At a steep, 20 degree grade, he wondered why it wasn’t rolling down the hill. He realized there was a breeze at his back holding the bottle in place. Then he had a thought that would only pop into the mind of a theoretical astrophysicist: “Oh! This is how Europa formed.” Europa is one of Jupiter’s four large Galilean moons. And in a paper published Monday in the Astrophysical Journal, Dr. Batygin and a co-author, Alessandro Morbidelli, a planetary scientist at the Côte d’Azur Observatory in France, present a theory explaining how some moons form around gas giants like Jupiter and Saturn, suggesting that millimeter-sized grains of hail produced during the solar system’s formation became trapped around these massive worlds, taking shape one at a time into the potentially habitable moons we know today.",
 			candidate_labels: "space & cosmos, scientific discovery, microbiology, robots, archeology",
-			multi_class: true,
+			multi_class:      true,
 		}
 	] ],
 	[ "translation", [
@@ -126,7 +127,7 @@ const MAPPING_EN: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "That is a happy person",
-			sentences: [
+			sentences:       [
 				"That is a happy dog",
 				"That is a very happy person",
 				"Today is a sunny day"
@@ -146,15 +147,15 @@ const MAPPING_ZH: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `我住在哪里？`,
+			text:    `我住在哪里？`,
 			context: `我叫沃尔夫冈，我住在柏林。`,
 		},
 		{
-			text: `我住在哪里？`,
+			text:    `我住在哪里？`,
 			context: `我叫萨拉，我住在伦敦。`,
 		},
 		{
-			text: `我的名字是什么？`,
+			text:    `我的名字是什么？`,
 			context: `我叫克拉拉，我住在伯克利。`,
 		},
 	] ],
@@ -164,7 +165,7 @@ const MAPPING_ZH: PerLanguageMapping = new Map([
 	] ],
 	[ "zero-shot-classification", [
 		{
-			text: "房间干净明亮，非常不错",
+			text:             "房间干净明亮，非常不错",
 			candidate_labels: "这是一条差评, 这是一条好评",
 		}
 	] ],
@@ -185,7 +186,7 @@ const MAPPING_ZH: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "那是 個快樂的人",
-			sentences: [
+			sentences:       [
 				"那是 條快樂的狗",
 				"那是 個非常幸福的人",
 				"今天是晴天"
@@ -203,7 +204,7 @@ const MAPPING_FR: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `Où est-ce que je vis?`,
+			text:    `Où est-ce que je vis?`,
 			context: `Mon nom est Wolfgang et je vis à Berlin`,
 		}
 	] ],
@@ -224,7 +225,7 @@ const MAPPING_FR: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "C'est une personne heureuse",
-			sentences: [
+			sentences:       [
 				"C'est un chien heureux",
 				"C'est une personne très heureuse",
 				"Aujourd'hui est une journée ensoleillée"
@@ -242,15 +243,15 @@ const MAPPING_ES: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `¿Dónde vivo?`,
+			text:    `¿Dónde vivo?`,
 			context: `Me llamo Wolfgang y vivo en Berlin`,
 		},
 		{
-			text: `¿Quién inventó el submarino?`,
+			text:    `¿Quién inventó el submarino?`,
 			context: `Isaac Peral fue un murciano que inventó el submarino`,
 		},
 		{
-			text: `¿Cuántas personas hablan español?`,
+			text:    `¿Cuántas personas hablan español?`,
 			context: `El español es el segundo idioma más hablado del mundo con más de 442 millones de hablantes`,
 		}
 	] ],
@@ -275,7 +276,7 @@ const MAPPING_ES: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "Esa es una persona feliz",
-			sentences: [
+			sentences:       [
 				"Ese es un perro feliz",
 				"Esa es una persona muy feliz",
 				"Hoy es un día soleado"
@@ -293,7 +294,7 @@ const MAPPING_RU: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `Где живу?`,
+			text:    `Где живу?`,
 			context: `Меня зовут Вольфганг и я живу в Берлине`,
 		}
 	] ],
@@ -314,7 +315,7 @@ const MAPPING_RU: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "Это счастливый человек",
-			sentences: [
+			sentences:       [
 				"Это счастливая собака",
 				"Это очень счастливый человек",
 				"Сегодня солнечный день"
@@ -343,15 +344,15 @@ const MAPPING_IT: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `Dove vivo?`,
+			text:    `Dove vivo?`,
 			context: `Mi chiamo Wolfgang e vivo a Berlino`,
 		},
 		{
-			text: `Dove vivo?`,
+			text:    `Dove vivo?`,
 			context: `Mi chiamo Sarah e vivo a Londra`,
 		},
 		{
-			text: `Come mio chiamo?`,
+			text:    `Come mio chiamo?`,
 			context: `Mi chiamo Clara e vivo a Berkeley.`,
 		},
 	] ],
@@ -376,7 +377,7 @@ const MAPPING_IT: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "Questa è una persona felice",
-			sentences: [
+			sentences:       [
 				"Questo è un cane felice",
 				"Questa è una persona molto felice",
 				"Oggi è una giornata di sole"
@@ -399,52 +400,52 @@ const MAPPING_FA: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `من کجا زندگی میکنم؟`,
+			text:    `من کجا زندگی میکنم؟`,
 			context: `نام من پژمان است و در گرگان زندگی میکنم.`,
 		},
 		{
-			text: `نامم چیست و کجا زندگی می‌کنم؟`,
+			text:    `نامم چیست و کجا زندگی می‌کنم؟`,
 			context: `اسمم سارا است و در آفریقای جنوبی زندگی میکنم.`,
 		},
 		{
-			text: `نام من چیست؟`,
+			text:    `نام من چیست؟`,
 			context: `من مریم هستم و در تبریز زندگی می‌کنم.`,
 		},
 		{
-			text: `بیشترین مساحت جنگل آمازون در کدام کشور است؟`,
+			text:    `بیشترین مساحت جنگل آمازون در کدام کشور است؟`,
 			context: [
-                'آمازون نام بزرگ‌ترین جنگل بارانی جهان است که در شمال آمریکای جنوبی قرار گرفته و بیشتر آن در خاک برزیل و پرو',
-                'جای دارد. بیش از نیمی از همه جنگل‌های بارانی باقی‌مانده در جهان در آمازون قرار دارد.',
-                'مساحت جنگل‌های آمازون ۵٫۵ میلیون کیلومتر مربع است که بین ۹ کشور تقسیم شده‌است.'
-            ].join('\n'),
+				'آمازون نام بزرگ‌ترین جنگل بارانی جهان است که در شمال آمریکای جنوبی قرار گرفته و بیشتر آن در خاک برزیل و پرو',
+				'جای دارد. بیش از نیمی از همه جنگل‌های بارانی باقی‌مانده در جهان در آمازون قرار دارد.',
+				'مساحت جنگل‌های آمازون ۵٫۵ میلیون کیلومتر مربع است که بین ۹ کشور تقسیم شده‌است.'
+			].join('\n'),
 		}
 	] ],
 	[ "translation", [
-        'بیشتر مساحت جنگل‌های آمازون در حوضه آبریز رود آمازون و ۱۱۰۰ شاخه آن واقع شده‌است.',
-        'مردمان نَبَطی از هزاره‌های یکم و دوم پیش از میلاد در این منطقه زندگی می‌کردند.'
-    ] ],
+		'بیشتر مساحت جنگل‌های آمازون در حوضه آبریز رود آمازون و ۱۱۰۰ شاخه آن واقع شده‌است.',
+		'مردمان نَبَطی از هزاره‌های یکم و دوم پیش از میلاد در این منطقه زندگی می‌کردند.'
+	] ],
 	[ "summarization", [
-        [
-            'شاهنامه اثر حکیم ابوالقاسم فردوسی توسی، حماسه‌ای منظوم، بر حسب دست نوشته‌های ',
-            'موجود دربرگیرنده نزدیک به ۵۰٬۰۰۰ بیت تا نزدیک به ۶۱٬۰۰۰ بیت و یکی از ',
-            'بزرگ‌ترین و برجسته‌ترین سروده‌های حماسی جهان است که سرایش آن دست‌آوردِ ',
-            'دست‌کم سی سال کارِ پیوستهٔ این سخن‌سرای نامدار ایرانی است. موضوع این شاهکار ادبی،',
-            ' افسانه‌ها و تاریخ ایران از آغاز تا حملهٔ عرب‌ها به ایران در سدهٔ هفتم میلادی است',
-            '  (شاهنامه از سه بخش اسطوره، پهلوانی و تاریخی تشکیل شده‌است) که در چهار',
-            '   دودمان پادشاهیِ پیشدادیان، کیانیان، اشکانیان و ساسانیان گنجانده می‌شود.',
-            '    شاهنامه بر وزن «فَعولُن فعولن فعولن فَعَلْ»، در بحرِ مُتَقارِبِ مثمَّنِ محذوف نگاشته شده‌است.',
-            'هنگامی که زبان دانش و ادبیات در ایران زبان عربی بود، فردوسی، با سرودن شاهنامه',
-            ' با ویژگی‌های هدف‌مندی که داشت، زبان پارسی را زنده و پایدار کرد. یکی از ',
-            ' بن‌مایه‌های مهمی که فردوسی برای سرودن شاهنامه از آن استفاده کرد،',
-            '  شاهنامهٔ ابومنصوری بود. شاهنامه نفوذ بسیاری در جهت‌گیری ',
-            '  فرهنگ فارسی و نیز بازتاب‌های شکوه‌مندی در ادبیات جهان داشته‌است و شاعران ',
-            '  بزرگی مانند گوته و ویکتور هوگو از آن به نیکی یاد کرده‌اند.'
-        ].join('\n')
-    ] ],
+		[
+			'شاهنامه اثر حکیم ابوالقاسم فردوسی توسی، حماسه‌ای منظوم، بر حسب دست نوشته‌های ',
+			'موجود دربرگیرنده نزدیک به ۵۰٬۰۰۰ بیت تا نزدیک به ۶۱٬۰۰۰ بیت و یکی از ',
+			'بزرگ‌ترین و برجسته‌ترین سروده‌های حماسی جهان است که سرایش آن دست‌آوردِ ',
+			'دست‌کم سی سال کارِ پیوستهٔ این سخن‌سرای نامدار ایرانی است. موضوع این شاهکار ادبی،',
+			' افسانه‌ها و تاریخ ایران از آغاز تا حملهٔ عرب‌ها به ایران در سدهٔ هفتم میلادی است',
+			'  (شاهنامه از سه بخش اسطوره، پهلوانی و تاریخی تشکیل شده‌است) که در چهار',
+			'   دودمان پادشاهیِ پیشدادیان، کیانیان، اشکانیان و ساسانیان گنجانده می‌شود.',
+			'    شاهنامه بر وزن «فَعولُن فعولن فعولن فَعَلْ»، در بحرِ مُتَقارِبِ مثمَّنِ محذوف نگاشته شده‌است.',
+			'هنگامی که زبان دانش و ادبیات در ایران زبان عربی بود، فردوسی، با سرودن شاهنامه',
+			' با ویژگی‌های هدف‌مندی که داشت، زبان پارسی را زنده و پایدار کرد. یکی از ',
+			' بن‌مایه‌های مهمی که فردوسی برای سرودن شاهنامه از آن استفاده کرد،',
+			'  شاهنامهٔ ابومنصوری بود. شاهنامه نفوذ بسیاری در جهت‌گیری ',
+			'  فرهنگ فارسی و نیز بازتاب‌های شکوه‌مندی در ادبیات جهان داشته‌است و شاعران ',
+			'  بزرگی مانند گوته و ویکتور هوگو از آن به نیکی یاد کرده‌اند.'
+		].join('\n')
+	] ],
 	[ "text-generation", [
-        'اسم من نازنین است و من',
-        'روزی روزگاری',
-    ] ],
+		'اسم من نازنین است و من',
+		'روزی روزگاری',
+	] ],
 	[ "fill-mask", [
 		`زندگی یک سوال است و این که چگونه <mask> کنیم پاسخ این سوال!`,
 		`زندگی از مرگ پرسید: چرا همه من را <mask> دارند اما از تو متنفرند؟`,
@@ -462,19 +463,19 @@ const MAPPING_AR: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `أين أسكن؟`,
+			text:    `أين أسكن؟`,
 			context: `إسمي محمد وأسكن في بيروت`,
 		},
 		{
-			text: `أين أسكن؟`,
+			text:    `أين أسكن؟`,
 			context: `إسمي ساره وأسكن في لندن`,
 		},
 		{
-			text: `ما اسمي؟`,
+			text:    `ما اسمي؟`,
 			context: `اسمي سعيد وأسكن في حيفا.`,
 		},
 		{
-			text: `ما لقب خالد بن الوليد بالعربية؟`,
+			text:    `ما لقب خالد بن الوليد بالعربية؟`,
 			context: `خالد بن الوليد من أبطال وقادة الفتح الإسلامي وقد تحدثت عنه اللغات الإنجليزية والفرنسية والإسبانية ولقب بسيف الله المسلول.`,
 		}
 	] ],
@@ -499,7 +500,7 @@ const MAPPING_AR: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "هذا شخص سعيد",
-			sentences: [
+			sentences:       [
 				"هذا كلب سعيد",
 				"هذا شخص سعيد جدا",
 				"اليوم هو يوم مشمس"
@@ -536,22 +537,22 @@ const MAPPING_BN: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `প্রথম এশিয়া কাপ ক্রিকেট টুর্নামেন্ট কোথায় অনুষ্ঠিত হয় ?`,
+			text:    `প্রথম এশিয়া কাপ ক্রিকেট টুর্নামেন্ট কোথায় অনুষ্ঠিত হয় ?`,
 			context: `প্রথম টুর্নামেন্ট অনুষ্ঠিত হয় ১৯৮৪ সালে সংযুক্ত আরব আমিরাত এর শারজাহ তে যেখানে কাউন্সিলের মূল অফিস ছিল (১৯৯৫ পর্যন্ত)। ভারত শ্রীলঙ্কার সাথে আন্তরিকতাহীন ক্রিকেট সম্পর্কের কারণে ১৯৮৬ সালের টুর্নামেন্ট বর্জন করে। ১৯৯৩ সালে ভারত ও পাকিস্তান এর মধ্যে রাজনৈতিক অস্থিরতার কারণে এটি বাতিল হয়ে যায়। শ্রীলঙ্কা এশিয়া কাপ শুরু থেকে অংশ গ্রহণ করে আসছে। আন্তর্জাতিক ক্রিকেট কাউন্সিল নিয়ম করে দিয়েছে যে এশিয়া কাপের সকল খেলা অনুষ্ঠিত হবে অফিসিয়াল একদিনের আন্তর্জাতিক ক্রিকেট হিসেবে। এসিসি ঘোষনা অনুযায়ী প্রতি দুই বছর পর পর টুর্নামেন্ট অনুষ্ঠিত হয় ২০০৮ সাল থেকে।`,
 		},
 		{
-			text: `ভারতীয় বাঙালি কথাসাহিত্যিক মহাশ্বেতা দেবীর মৃত্যু কবে হয় ?`,
+			text:    `ভারতীয় বাঙালি কথাসাহিত্যিক মহাশ্বেতা দেবীর মৃত্যু কবে হয় ?`,
 			context: `২০১৬ সালের ২৩ জুলাই হৃদরোগে আক্রান্ত হয়ে মহাশ্বেতা দেবী কলকাতার বেল ভিউ ক্লিনিকে ভর্তি হন। সেই বছরই ২৮ জুলাই একাধিক অঙ্গ বিকল হয়ে তাঁর মৃত্যু ঘটে। তিনি মধুমেহ, সেপ্টিসেমিয়া ও মূত্র সংক্রমণ রোগেও ভুগছিলেন।`,
 		},
 		{
-			text: `মাস্টারদা সূর্যকুমার সেনের বাবার নাম কী ছিল ?`,
+			text:    `মাস্টারদা সূর্যকুমার সেনের বাবার নাম কী ছিল ?`,
 			context: `সূর্য সেন ১৮৯৪ সালের ২২ মার্চ চট্টগ্রামের রাউজান থানার নোয়াপাড়ায় অর্থনৈতিক ভাবে অস্বচ্ছল পরিবারে জন্মগ্রহণ করেন। তাঁর পিতার নাম রাজমনি সেন এবং মাতার নাম শশী বালা সেন। রাজমনি সেনের দুই ছেলে আর চার মেয়ে। সূর্য সেন তাঁদের পরিবারের চতুর্থ সন্তান। দুই ছেলের নাম সূর্য ও কমল। চার মেয়ের নাম বরদাসুন্দরী, সাবিত্রী, ভানুমতী ও প্রমিলা। শৈশবে পিতা মাতাকে হারানো সূর্য সেন কাকা গৌরমনি সেনের কাছে মানুষ হয়েছেন। সূর্য সেন ছেলেবেলা থেকেই খুব মনোযোগী ভাল ছাত্র ছিলেন এবং ধর্মভাবাপন্ন গম্ভীর প্রকৃতির ছিলেন।`,
 		}
 	] ],
 	[ "sentence-similarity", [
 		{
 			source_sentence: "সে একজন সুখী ব্যক্তি",
-			sentences: [
+			sentences:       [
 				"সে হ্যাপি কুকুর",
 				"সে খুব সুখী মানুষ",
 				"আজ একটি রৌদ্রোজ্জ্বল দিন"
@@ -571,15 +572,15 @@ const MAPPING_MN: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `Та хаана амьдардаг вэ?`,
+			text:    `Та хаана амьдардаг вэ?`,
 			context: `Намайг Дорж гэдэг. Би Улаанбаатарт амьдардаг.`,
 		},
 		{
-			text: `Таныг хэн гэдэг вэ?`,
+			text:    `Таныг хэн гэдэг вэ?`,
 			context: `Намайг Дорж гэдэг. Би Улаанбаатарт амьдардаг.`,
 		},
 		{
-			text: `Миний нэрийг хэн гэдэг вэ?`,
+			text:    `Миний нэрийг хэн гэдэг вэ?`,
 			context: `Намайг Ганбат гэдэг. Би Увс аймагт төрсөн.`,
 		}
 	] ],
@@ -603,11 +604,11 @@ const MAPPING_MN: PerLanguageMapping = new Map([
 	[ "automatic-speech-recognition", [
 		{
 			label: `Common Voice Train Example`,
-			src: `https://cdn-media.huggingface.co/common_voice/train/common_voice_mn_18577472.wav`,
+			src:   `https://cdn-media.huggingface.co/common_voice/train/common_voice_mn_18577472.wav`,
 		},
 		{
 			label: `Common Voice Test Example`,
-			src: `https://cdn-media.huggingface.co/common_voice/test/common_voice_mn_18577346.wav`,
+			src:   `https://cdn-media.huggingface.co/common_voice/test/common_voice_mn_18577346.wav`,
 		},
 	] ],
 	[ "text-to-speech", [
@@ -618,7 +619,7 @@ const MAPPING_MN: PerLanguageMapping = new Map([
 	[ "sentence-similarity", [
 		{
 			source_sentence: "Энэ бол аз жаргалтай хүн юм",
-			sentences: [
+			sentences:       [
 				"Энэ бол аз жаргалтай нохой юм",
 				"Энэ бол маш их аз жаргалтай хүн юм",
 				"Өнөөдөр нарлаг өдөр байна"
@@ -641,18 +642,18 @@ const MAPPING_SI: PerLanguageMapping = new Map([
 const MAPPING_DE: PerLanguageMapping = new Map([
 	[ "question-answering", [
 		{
-			text: `Wo wohne ich?`,
+			text:    `Wo wohne ich?`,
 			context: `Mein Name ist Wolfgang und ich lebe in Berlin`,
 		},
 		{
-			text: `Welcher Name wird auch verwendet, um den Amazonas-Regenwald auf Englisch zu beschreiben?`,
+			text:    `Welcher Name wird auch verwendet, um den Amazonas-Regenwald auf Englisch zu beschreiben?`,
 			context: `Der Amazonas-Regenwald, auf Englisch auch als Amazonien oder Amazonas-Dschungel bekannt, ist ein feuchter Laubwald, der den größten Teil des Amazonas-Beckens Südamerikas bedeckt. Dieses Becken umfasst 7.000.000 Quadratkilometer (2.700.000 Quadratmeilen), von denen 5.500.000 Quadratkilometer (2.100.000 Quadratmeilen) vom Regenwald bedeckt sind. Diese Region umfasst Gebiete von neun Nationen. Der größte Teil des Waldes befindet sich in Brasilien mit 60% des Regenwaldes, gefolgt von Peru mit 13%, Kolumbien mit 10% und geringen Mengen in Venezuela, Ecuador, Bolivien, Guyana, Suriname und Französisch-Guayana. Staaten oder Abteilungen in vier Nationen enthalten "Amazonas" in ihren Namen. Der Amazonas repräsentiert mehr als die Hälfte der verbleibenden Regenwälder des Planeten und umfasst den größten und artenreichsten tropischen Regenwald der Welt mit geschätzten 390 Milliarden Einzelbäumen, die in 16.000 Arten unterteilt sind.`,
 		}
 	] ],
 	[ "sentence-similarity", [
 		{
 			source_sentence: "Das ist eine glückliche Person",
-			sentences: [
+			sentences:       [
 				"Das ist ein glücklicher Hund",
 				"Das ist eine sehr glückliche Person",
 				"Heute ist ein sonniger Tag"
@@ -672,19 +673,19 @@ const MAPPING_DV: PerLanguageMapping = new Map([
 	] ],
 	[ "question-answering", [
 		{
-			text: `އަހަރެން ދިރިއުޅެނީ ކޮންތާކު؟`,
+			text:    `އަހަރެން ދިރިއުޅެނީ ކޮންތާކު؟`,
 			context: `އަހަރެންގެ ނަމަކީ އަހުމަދު އަދި އަހަރެން ދިރިއުޅެނީ މާލޭގަ`,
 		},
 		{
-			text: `އަހަރެން ދިރިއުޅެނީ ކޮންތާކު؟`,
+			text:    `އަހަރެން ދިރިއުޅެނީ ކޮންތާކު؟`,
 			context: `އަހަރެންގެ ނަމަކީ ސާރާ އަދި އަހަރެން ދިރިއުޅެނީ އުތީމުގަ`,
 		},
 		{
-			text: `އަހަރެންގެ ނަމަކީ ކޮބާ؟`,
+			text:    `އަހަރެންގެ ނަމަކީ ކޮބާ؟`,
 			context: `އަހަރެންގެ ނަމަކީ އައިޝާ އަދި އަހަރެން ދިރިއުޅެނީ ފޭދޫގަ`,
 		},
 		{
-			text: `އެމޭޒަން ރެއިންފޮރެސްޓް ސިފަކޮށްދިނުމަށް އިނގިރޭސި ބަހުން ބޭނުންކުރާނީ ކޮންނަމެއް؟`,
+			text:    `އެމޭޒަން ރެއިންފޮރެސްޓް ސިފަކޮށްދިނުމަށް އިނގިރޭސި ބަހުން ބޭނުންކުރާނީ ކޮންނަމެއް؟`,
 			context: `އެމޭޒަން ރެއިންފޮރެސްޓް (ޕޯޗުޖީޒް: ފްލޮރެސްޓާ އެމަސޮނިކާ ނުވަތަ އެމަސޮނިއާ؛ ސްޕެނިޝް: ސެލްވާ އެމަސޮނިކާ, އެމަސޮނިއާ ނޫނީ އާންމުކޮށް އެމަޒޯނިއާ؛ ފްރެންޗް: ފޮރޭ އެމެޒޮނިއެން؛ ޑަޗް: އެމެޒޯންރޭގެވައުޑް)، އިގިރޭސި ބަހުން ބުނާ އެމެޒޯނިއާ ނުވަތަ ދަ އެމޭޒަން ޖަންގަލް އަކީ, ސައުތު އެމެރިކާގެ އެމޭޒަން ބޭސިން ސަރަހައްދުގެ ބޮޑުބައެއްގައި ހިމެނޭ މޮއިސްޓް ބޮރޯޑްލީފް ފޮރެސްޓެއެކެވެ. އެމޭޒަން ބޭސިން ސަރަހައްދުގެ ބޮޑު މިނަކީ 7 މިލިއަން އަކަ ކިލޯމީޓަރ (2.7 މިލިއަން އަކަ މައިލް(. މީގެ ތެރެއިން 5.5 މިލިއަން އަކަ ކިލޯމީޓަރ (2.1 މިލިއަން އަކަ މައިލް) އަކީ މި ފޮރެސްޓެވެ. މި ސަރަހައްދުގައި 9 ގައުމަކަށް ނިސްބަތްވާ ޓެރިޓަރީ ހިމެނެއެވެ.  60% އާއިއެކެ އެންމެ ބޮޑު ބައެއް ނިސްބަތްވަނީ ބްރެޒިލްއަށެވެ. އޭގެ ފަހުތުން 13% އާއެކު ޕެރޫ އާއި 10% އާއެކު ކޮލަމްބިއާ އަދި ކުޑަ ބައެއް ހިމެނޭ ގޮތުން ވެނެޒުއެލާ, އެކްއަޑޯ, ބޮލިވިއާ, ގުޔާނާ, ސުރިނާމް އަދި ފްރެންޗް ގްއާނާ އަށް ވެސް ނިސްބަތްވެއެވެ. މީގެ ތެރެއިން 4 ގައުމެއްގައި "އެމެޒޮނާސް" ހިމަނައިގެން ސްޓޭޓް ނުވަތަ ޑިޕާޓްމަންޓް އަކަށް ނަންދީފައިވެއެވެ. މުޅި ދުނިޔޭގައި ބާކީ ހުރި ރެއިންފޮރެސްޓްގެ ތެރެއިން ދެބައިކުޅަ އެއްބަޔަށްވުރެބޮޑުވަރެއް އެމޭޒޮން ރެއިންފޮރެސްޓް ހިއްސާކުރެއެވެ. މިއީ މުޅި ދުނިޔެއިން އެންމޮ ބޮޑު އަދި އެންމެ ބައޮޑައިވަރސް ރެއިންފޮރެސްޓް ޓްރެކްޓެވެ. ލަފާކުރެވޭ ގޮތުން 16 ހާސް ސްޕީޝީސްއަށް ބެހިގެންވާ 390 މިލިއަން ވައްތަރުގެ ގަސް މިތާގައި ހިމެނެއެވެ`,
 		}
 	] ],

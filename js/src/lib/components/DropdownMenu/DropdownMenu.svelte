@@ -26,9 +26,7 @@
 			alignement = left + width > docWidth ? "right" : "left";
 		}
 		if (alignement === "screen-center") {
-			element.style.transform = `translateX(${
-				docWidth / 2 - width / 2 - bbox.left
-			}px)`;
+			element.style.transform = `translateX(${docWidth / 2 - width / 2 - bbox.left}px)`;
 		}
 
 		return () => {
@@ -41,10 +39,7 @@
 		// We ignore clicks that happens inside the Dropdown itself
 		// (prevent race condition  with other click handlers)
 		const targetElement = e.target as HTMLElement;
-		if (
-			targetElement !== dropdownElement &&
-			!dropdownElement?.contains(targetElement)
-		) {
+		if (targetElement !== dropdownElement && !dropdownElement?.contains(targetElement)) {
 			onClose();
 		}
 	}

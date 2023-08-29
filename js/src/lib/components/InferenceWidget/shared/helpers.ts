@@ -6,7 +6,7 @@ export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
 	return keys.map((key) => {
 		const value = searchParams.get(key);
-		return value ? value : '';
+		return value || '';
 	});
 }
 
@@ -22,7 +22,7 @@ export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string | undefined>) {
+export function updateUrl(obj: Record<string, string | undefined>) : void {
 	if (!window) {
 		return;
 	}
@@ -91,7 +91,7 @@ async function callApi(
 	return await fetch(
 		`${url}/models/${repoId}`,
 		{
-			method: "POST",
+			method:      "POST",
 			body,
 			headers,
 			credentials: includeCredentials ? "include" : "same-origin",
@@ -110,20 +110,20 @@ export async function getResponse<T>(
 	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
 ): Promise<{
-	computeTime: string,
-	output: T,
-	outputJson: string,
-	response: Response,
-	status: 'success'
+	computeTime: string;
+	output:      T;
+	outputJson:  string;
+	response:    Response;
+	status:      'success';
 } | {
-	error: string,
-	estimatedTime: number,
-	status: 'loading-model'
+	error:         string;
+	estimatedTime: number;
+	status:        'loading-model';
 } | {
-	error: string,
-	status: 'error'
+	error:  string;
+	status: 'error';
 } | {
-	status: 'cache not found'
+	status: 'cache not found';
 }>  {
 	const response = await callApi(
 		url,
@@ -165,9 +165,10 @@ export async function getResponse<T>(
 		const body = parseJSON<Record<string, any>>(bodyText) ?? {};
 
 		if (
-			body["error"] &&
-			response.status === 503 &&
-			body["estimated_time"] != null // != null -> check for null AND undefined
+			body["error"]
+			&& response.status === 503
+			&& body["estimated_time"] !== null 
+			&& body["estimated_time"] !== undefined
 		) {
 			// Model needs loading
 			return { error: body["error"], estimatedTime: body["estimated_time"], status: 'loading-model' };
@@ -185,8 +186,8 @@ export async function getModelLoadInfo(url: string, repoId: string, includeCrede
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
 		const status = output.loaded ? 'loaded' : 'unknown';
-		const compute_type = output.compute_type;
-		return {status, compute_type}
+		const computeType = output.compute_type;
+		return {status, compute_type: computeType}
 	} else {
 		console.warn(response.status, output.error);
 		return {status: 'error'};
@@ -194,7 +195,7 @@ export async function getModelLoadInfo(url: string, repoId: string, includeCrede
 }
 
 // Extend Inference API requestBody with user supplied Inference API parameters
-export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData) {
+export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData) : void {
 	const inference = model?.cardData?.inference;
 	if (typeof inference === "object") {
 		const inferenceParameters = inference?.parameters;
@@ -221,7 +222,7 @@ export function convertTableToData(table: (string | number)[][]): TableData {
 					.slice(1)
 					.flat()
 					.filter((_, i) => i % table[0].length === x)
-					.map((x) => String(x)), // some models can only handle strings (no numbers)
+					.map((v) => String(v)), // some models can only handle strings (no numbers)
 			];
 		})
 	);
@@ -240,6 +241,6 @@ export function convertDataToTable(data: TableData): (string | number)[][] {
 		.map((_, y) =>
 			Array(nbCols)
 				.fill("")
-				.map((_, x) => (y === 0 ? dataArray[x][0] : dataArray[x][1][y - 1]))
+				.map((__, x) => (y === 0 ? dataArray[x][0] : dataArray[x][1][y - 1]))
 		);
 }

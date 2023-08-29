@@ -457,9 +457,9 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:    "blue",
 	},
 	"reinforcement-learning": {
-		name:           "Reinforcement Learning",
-		modality:       "rl",
-		color:          "red",
+		name:     "Reinforcement Learning",
+		modality: "rl",
+		color:    "red",
 	},
 	"robotics": {
 		name:     "Robotics",
@@ -474,7 +474,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Task Planning",
 			},
 		],
-		color:          "blue",
+		color: "blue",
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
@@ -658,7 +658,7 @@ export const OTHER_TAGS_SUGGESTIONS = [
 ];
 
 
-export type WidgetInputSample = Record<string | "example_title" | "group", string>;
+export type WidgetInputSample = Record<string | "example_title" | "group", any>;
 
 /**
  * Public interface for model metadata

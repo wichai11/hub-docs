@@ -3,7 +3,7 @@ import { PIPELINE_DATA } from "../lib/interfaces/Types";
 const DISABLE_HIDE_IN_DATASETS = process.argv.slice(2).includes("---no-hide-in-datasets") ?? true;
 
 interface ExportedPipelineData {
-	type: string;
+	type:      string;
 	subtasks?: string[];
 }
 

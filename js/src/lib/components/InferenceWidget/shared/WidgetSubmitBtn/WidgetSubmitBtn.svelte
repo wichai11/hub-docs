@@ -5,7 +5,7 @@
 	export let isDisabled = false;
 	export let isLoading: boolean;
 	export let label = "Compute";
-	export let onClick: () => void;
+	export let onClick: (e: MouseEvent) => void;
 
 	function onKeyDown(e: KeyboardEvent) {
 		if (isLoading) {
@@ -22,7 +22,7 @@
 <svelte:window on:keydown={onKeyDown} />
 
 <button
-	class="btn-widget w-24 h-10 px-5 {classNames}"
+	class="btn-widget h-10 w-24 px-5 {classNames}"
 	disabled={isDisabled || isLoading}
 	on:click|preventDefault={onClick}
 	type="submit"
